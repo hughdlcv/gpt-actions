@@ -1,0 +1,99 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Acciones para GPT con Google Sheets",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://script.google.com"
+    }
+  ],
+  "paths": {
+    "/exec": {
+      "post": {
+        "operationId": "guardarPerfilUsuario",
+        "summary": "Guarda las preferencias del usuario en Google Sheets",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "usuario": {
+                    "type": "string"
+                  },
+                  "deporteFavorito": {
+                    "type": "string"
+                  },
+                  "equipoFavorito": {
+                    "type": "string"
+                  },
+                  "tipoInformacionPreferida": {
+                    "type": "string"
+                  },
+                  "infoNacionalInternacional": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "usuario"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Preferencias guardadas exitosamente"
+          }
+        }
+      },
+      "get": {
+        "operationId": "leerPerfilUsuario",
+        "summary": "Lee las preferencias del usuario desde Google Sheets",
+        "parameters": [
+          {
+            "name": "usuario",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Perfil recuperado exitosamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "usuario": {
+                      "type": "string"
+                    },
+                    "deporteFavorito": {
+                      "type": "string"
+                    },
+                    "equipoFavorito": {
+                      "type": "string"
+                    },
+                    "tipoInformacionPreferida": {
+                      "type": "string"
+                    },
+                    "infoNacionalInternacional": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

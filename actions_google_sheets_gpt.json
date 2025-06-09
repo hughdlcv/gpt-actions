@@ -1,0 +1,50 @@
+{
+  "actions": [
+    {
+      "name": "guardarPerfilUsuario",
+      "description": "Guarda las preferencias del usuario en Google Sheets",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "usuario": {
+            "type": "string"
+          },
+          "deporteFavorito": {
+            "type": "string"
+          },
+          "equipoFavorito": {
+            "type": "string"
+          },
+          "tipoInformacionPreferida": {
+            "type": "string"
+          },
+          "infoNacionalInternacional": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "usuario"
+        ]
+      },
+      "method": "POST",
+      "url": "https://script.google.com/macros/s/AKfycbyIg5-Qa867p78OBYCTqAzDNQDXqU0R3yU42b_a_1y4zT4BONtou8oGBMDvCPxA62JDyQ/exec"
+    },
+    {
+      "name": "leerPerfilUsuario",
+      "description": "Lee las preferencias del usuario desde Google Sheets",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "usuario": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "usuario"
+        ]
+      },
+      "method": "GET",
+      "url": "https://script.google.com/macros/s/AKfycbyIg5-Qa867p78OBYCTqAzDNQDXqU0R3yU42b_a_1y4zT4BONtou8oGBMDvCPxA62JDyQ/exec?usuario={{usuario}}"
+    }
+  ]
+}
